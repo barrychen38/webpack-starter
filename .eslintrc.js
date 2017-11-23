@@ -5,14 +5,8 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  // allow window
-  eslintConfig: {
-    globals: {
-      window: true
-    }
-  },
   env: {
-    browser: true,
+    browser: true
   },
   extends: 'standard',
   'rules': {
@@ -23,6 +17,7 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 0,
     // allow debugger during development
-    'no-debugger': 0
+    'no-debugger': 0,
+    'space-before-function-paren': 0
   }
 }

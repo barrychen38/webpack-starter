@@ -1,14 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const webpackCommonConf = require('./webpack.common');
+const path = require('path')
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const webpackCommonConf = require('./webpack.common')
 
-const config = require('./index');
-const helper = require('./helper');
+const config = require('./index')
+const helper = require('./helper')
 
 const METADATA = {
   title: config.title,
@@ -76,4 +76,4 @@ module.exports = webpackMerge(webpackCommonConf, {
       }
     })
   ]
-});
+})

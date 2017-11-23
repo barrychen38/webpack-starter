@@ -1,9 +1,9 @@
-const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
-const webpackCommonConf = require('./webpack.common');
-const config = require('./index');
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
+const webpackCommonConf = require('./webpack.common')
+const config = require('./index')
 
-const { host, port } = config;
+const { host, port } = config
 
 module.exports = webpackMerge(webpackCommonConf, {
 
@@ -27,7 +27,7 @@ module.exports = webpackMerge(webpackCommonConf, {
           },
           'postcss-loader',
           'sass-loader?url=false']
-      },
+      }
     ]
   },
 
@@ -46,4 +46,4 @@ module.exports = webpackMerge(webpackCommonConf, {
     },
     hot: true
   }
-});
+})

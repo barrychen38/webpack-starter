@@ -1,8 +1,8 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const config = require('./index');
-const helper = require('./helper');
+const config = require('./index')
+const helper = require('./helper')
 
 const METADATA = {
   title: config.title,
@@ -12,11 +12,23 @@ const METADATA = {
 module.exports = {
 
   resolve: {
-    extensions: ['.js', '.scss']
+    extensions: ['.js']
   },
 
   module: {
     rules: [
+      {
+        test: /[^index]\.html$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            removeComments: false,
+            collapseWhitespace: false,
+            removeAttributeQuotes: true
+          }
+        }
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -51,6 +63,6 @@ module.exports = {
       template: './src/index.html',
       metadata: METADATA,
       inject: true
-    }),
+    })
   ]
 }

@@ -1,6 +1,6 @@
 // Import the global style
-import '../sass/application.scss';
+import '../sass/application.scss'
 
-import { add } from './app';
+import { init } from './app'
 
-add();
+init()
