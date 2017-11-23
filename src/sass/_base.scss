@@ -1,0 +1,5 @@
+p {
+  @include size(200px);
+  line-height: 200px;
+  text-align: center;
+}
