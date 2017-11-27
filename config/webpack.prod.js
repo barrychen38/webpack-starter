@@ -22,7 +22,7 @@ module.exports = webpackMerge(webpackCommonConf, {
   },
 
   output: {
-    path: path.resolve('./', 'dist'),
+    path: helper.root('dist'),
     filename: 'js/[name].[hash].js'
   },
 
