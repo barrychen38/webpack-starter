@@ -26,7 +26,8 @@ module.exports = webpackMerge(webpackCommonConf, {
             }
           },
           'postcss-loader',
-          'sass-loader?url=false']
+          'sass-loader?url=false'
+        ]
       }
     ]
   },
