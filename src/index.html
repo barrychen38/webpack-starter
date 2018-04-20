@@ -2,25 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=640,target-densitydpi=device-dpi,maximum-scale=1,user-scalable=no">
-  <meta name="format-detection" content="telephone=no,email=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="screen-orientation" content="portrait">
-  <meta name="x5-orientation" content="portrait">
-  <meta name="renderer" content="webkit">
-  <title>Campaign</title>
+  <meta name="viewport" content="width=750,target-densitydpi=device-dpi,maximum-scale=1,user-scalable=no">
+  <%= webpackConfig.htmlElements.headTags %>
+  <title>Webpack Starter</title>
+
 </head>
 <body>
+
   <div>
     <button id="add">Add Event</button>
     <button id="trigger">Trigger Event</button>
     <button id="remove">Remove Event</button>
     <p id="show"></p>
   </div>
-  <% if(htmlWebpackPlugin.options.metadata.isDev) { %>
-    <script src="/webpack-dev-server.js"></script>
-  <% } %>
+
 </body>
 </html>

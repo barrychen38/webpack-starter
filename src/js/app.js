@@ -8,18 +8,18 @@ export function init() {
   let removeBtn = document.getElementById('remove')
   let show = document.getElementById('show')
 
-  addBtn.onclick = function() {
-    event.on('show', function() {
+  addBtn.onclick = () => {
+    event.on('show', () => {
       show.innerText = 'Event Triggered.'
     })
     show.innerText = 'Event Added.'
   }
 
-  triggerBtn.onclick = function() {
+  triggerBtn.onclick = () => {
     event.trigger('show')
   }
 
-  removeBtn.onclick = function() {
+  removeBtn.onclick = () => {
     event.off('show')
     show.innerText = 'Event Removed.'
   }

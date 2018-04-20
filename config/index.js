@@ -1,4 +1,5 @@
 module.exports = {
-  host: process.env.HOST || '127.0.0.1',
-  port: process.env.PORT || 5386
+  host: process.env.host || '127.0.0.1',
+  port: process.env.port || 5386,
+  hashLen: 10
 }
