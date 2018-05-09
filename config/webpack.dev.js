@@ -55,7 +55,10 @@ module.exports = webpackMerge(webpackCommonConf, {
       poll: 1000
     },
     clientLogLevel: 'none',
-    overlay: { warnings: false, errors: true },
+    overlay: {
+      warnings: false,
+      errors: true
+    },
     hot: true
   }
 })
