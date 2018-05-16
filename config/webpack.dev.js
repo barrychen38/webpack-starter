@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
 const HtmlPluginReload = require('webpack-html-plugin-reload')
+const SpritesmithPlugin = require('webpack-spritesmith')
 const webpackCommonConf = require('./webpack.common')
 const config = require('./index')
 const helper = require('./helper')
@@ -14,6 +15,10 @@ module.exports = webpackMerge(webpackCommonConf, {
   ],
 
   devtool: 'cheap-module-source-map',
+
+  resolve: {
+    modules: ['node_modules', 'spritesmith-generated']
+  },
 
   module: {
     rules: [
@@ -36,6 +41,12 @@ module.exports = webpackMerge(webpackCommonConf, {
           'sass-loader?url=false'
         ],
         include: [helper.root('src')]
+      },
+      {
+        test: /\.png$/,
+        loaders: [
+          'file-loader?name=i/[hash].[ext]'
+        ]
       }
     ]
   },
@@ -43,7 +54,20 @@ module.exports = webpackMerge(webpackCommonConf, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new HtmlPluginReload()
+    new HtmlPluginReload(),
+    new SpritesmithPlugin({
+      src: {
+        cwd: helper.root('src/sprite'),
+        glob: '*.(png|jpg|jpeg)'
+      },
+      target: {
+        image: helper.root('src/assets/images/sprite.png'),
+        css: helper.root('src/sass/_sprite.scss')
+      },
+      apiOptions: {
+        cssImageRef: '../assets/images/sprite.png'
+      }
+    })
   ],
 
   devServer: {
