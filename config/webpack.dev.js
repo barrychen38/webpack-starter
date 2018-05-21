@@ -6,7 +6,13 @@ const webpackCommonConf = require('./webpack.common')
 const config = require('./index')
 const helper = require('./helper')
 
-const { host, port } = config
+const { host, port, isProxy, proxyTable } = config
+
+let proxy = {}
+
+if (isProxy) {
+  proxy = proxyTable
+}
 
 module.exports = webpackMerge(webpackCommonConf, {
 
@@ -83,6 +89,9 @@ module.exports = webpackMerge(webpackCommonConf, {
       warnings: false,
       errors: true
     },
-    hot: true
+    hot: true,
+
+    // See https://webpack.js.org/configuration/dev-server/#devserver-proxy
+    proxy
   }
 })
