@@ -1,8 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlElementsWebpackPlugin = require('html-elements-webpack-plugin');
+const HtmlElementsWebpackPlugin = require('html-elements-webpack-plugin')
 
-const config = require('./index')
 const helper = require('./helper')
 const headTags = require('./head-meta-config')
 
