@@ -1,26 +1,26 @@
-import { EventEmitter } from './util/event'
+import EventEmitter from './util/event'
 
-export function init() {
-  let event = new EventEmitter()
+export default function init () {
+    const event = new EventEmitter()
 
-  let addBtn = document.getElementById('add')
-  let triggerBtn = document.getElementById('trigger')
-  let removeBtn = document.getElementById('remove')
-  let show = document.getElementById('show')
+    const addBtn = document.getElementById('add')
+    const triggerBtn = document.getElementById('trigger')
+    const removeBtn = document.getElementById('remove')
+    const show = document.getElementById('show')
 
-  addBtn.onclick = () => {
-    event.on('show', () => {
-      show.innerText = 'Event Triggered.'
-    })
-    show.innerText = 'Event Added.'
-  }
+    addBtn.onclick = () => {
+        event.on('show', () => {
+            show.innerText = 'Event Triggered.'
+        })
+        show.innerText = 'Event Added.'
+    }
 
-  triggerBtn.onclick = () => {
-    event.trigger('show')
-  }
+    triggerBtn.onclick = () => {
+        event.trigger('show')
+    }
 
-  removeBtn.onclick = () => {
-    event.off('show')
-    show.innerText = 'Event Removed.'
-  }
+    removeBtn.onclick = () => {
+        event.off('show')
+        show.innerText = 'Event Removed.'
+    }
 }

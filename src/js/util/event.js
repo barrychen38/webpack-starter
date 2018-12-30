@@ -1,39 +1,39 @@
-export class EventEmitter {
-  constructor() {
-    this.events = {}
-  }
+export default class EventEmitter {
+    constructor () {
+        this.events = {}
+    }
 
-  on(type, callback) {
-    if (!this.events[type]) {
-      this.events[type] = [callback]
-      return
+    on (type, callback) {
+        if (!this.events[type]) {
+            this.events[type] = [ callback ]
+            return
+        }
+        this.events[type].push(callback)
     }
-    this.events[type].push(callback)
-  }
 
-  off(type, callback) {
-    let _events = this.events[type]
-    if (!_events) {
-      return
+    off (type) {
+        const events = this.events[type]
+        if (!events) {
+            return
+        }
+        const len = events.length
+        for (let i = 0; i < len; i += 1) {
+            events[i] = null
+        }
+        this.events[type].length = 0
     }
-    let _len = _events.length
-    for (let i = 0; i < _len; i++) {
-      _events[i] = null
-    }
-    this.events[type].length = 0
-  }
 
-  trigger(type) {
-    let self = this
-    let _events = this.events[type]
-    if (!_events) {
-      return
+    trigger (type) {
+        const self = this
+        const events = this.events[type]
+        if (!events) {
+            return
+        }
+        const len = events.length
+        for (let i = 0; i < len; i += 1) {
+            if (events[i]) {
+                events[i].apply(self, [].slice.call(arguments, 1))
+            }
+        }
     }
-    let _len = _events.length
-    for (let i = 0; i < _len; i++) {
-      if (_events[i]) {
-        _events[i].apply(self, [].slice.call(arguments, 1))
-      }
-    }
-  }
 }
