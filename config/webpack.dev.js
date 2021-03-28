@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
-const HtmlPluginReload = require('webpack-html-plugin-reload')
 const SpritesmithPlugin = require('webpack-spritesmith')
 const webpackCommonConf = require('./webpack.common')
 const config = require('./index')
@@ -59,7 +58,6 @@ module.exports = webpackMerge(webpackCommonConf, {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new HtmlPluginReload(),
         new SpritesmithPlugin({
             src: {
                 cwd: helper.root('src/sprite'),
@@ -89,6 +87,8 @@ module.exports = webpackMerge(webpackCommonConf, {
             errors: true,
         },
         hot: true,
+        contentBase: './src',
+        watchContentBase: true,
 
         // See https://webpack.js.org/configuration/dev-server/#devserver-proxy
         proxy,
